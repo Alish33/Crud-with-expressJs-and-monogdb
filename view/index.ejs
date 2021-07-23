@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+</head>
+
+<body style="background-color: rgb(82, 50, 111);">
+
+    <div class="text-center mt-3">
+        <h3 class="crudHome text-light" style="display: inline-block;
+         border-bottom:2px solid rgb(184, 178, 9);">CRUD with Node</h3>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 mx-3 mt-4 shadow-lg">
+                <div class="text-primary text-center bg-dark rounded-3">
+                    <h4 class="p-2">Registration</h4>
+                </div>
+
+                <form action="/register" autocomplete="off" method="POST" class="p-3 rounded-3"
+                    style="background-color: rgb(255, 255, 255)">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">FirstName</label>
+                            <input type="text" class="form-control" name="first" required />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">LastName</label>
+                            <input type="text" class="form-control" name="last" required />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contact</label>
+                        <input type="text" class="form-control" name="contact" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" placeholder="Enter your email" name="email" required />
+                    </div>
+
+                    <div class="row mt-4 mx-2">
+                        <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>
+                        <!-- <input type="submit" class="btn btn-lg btn-block btn-danger" value="Submit"> -->
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-7 mt-5 shadow-lg bg-light">
+                <table class="table table-striped table-hover bg-light shadow-lg">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">ID</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i=0; i < alish.length; i++) { %>
+                            <tr class="text-center">
+                                <td>
+                                    <%= i+1 %>
+                                </td>
+                                <td>
+                                    <%= alish[i].first %>
+                                </td>
+                                <td>
+                                    <%= alish[i].last %>
+                                </td>
+                                <td>
+                                    <%= alish[i].address %>
+                                </td>
+                                <td>
+                                    <%= alish[i].contact %>
+                                </td>
+                                <td>
+                                    <%= alish[i].email %>
+                                </td>
+                                <td>
+                                    <a type="btn" href="/edit/<%= alish[i].id%>" class="btn btn-sm btn-primary"
+                                        id="editData">Edit</a>
+                                    <a type="btn" href="/delete/<%= alish[i].id%>"
+                                        class="btn btn-sm btn-danger ms-3">Delete</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
