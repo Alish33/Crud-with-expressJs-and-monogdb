@@ -19,6 +19,10 @@ mongoose.connect("mongodb://localhost/register", {
 // Initializing body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Since body parser is depricated and it doesn't need to be installed. So, instead of bodyParser, you can use the following code
+// app.use(express.urlencoded());
+// app.use(express.json());
+
 // setting the ejs enginee for viewing all the frontend views
 app.set('view enginee', 'ejs');
 
